@@ -3,416 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Niraj Bhayera — Backend & Full-Stack Developer</title>
-<meta name="description" content="Niraj Bhayera — CS student building backend systems, DSA-first problem solver, seeking SWE internships.">
+<meta name="theme-color" content="#080a0e">
+<title>Niraj Bhayera — Software Engineer</title>
+<meta name="description" content="Niraj Bhayera builds backend systems, developer tools, and full-stack products.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-    --bg:#0B1420;
-    --bg-panel:#101C2C;
-    --bg-panel-2:#0E1826;
-    --line:#22334A;
-    --text:#E9EEF2;
-    --text-dim:#8FA1B0;
-    --text-faint:#5C7080;
-    --copper:#CD8B4E;
-    --teal:#4FB8A6;
-    --maxw:920px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Space Grotesk',sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'IBM Plex Mono',monospace;}
-  a{color:var(--copper);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
-
-  /* layout shell */
-  .shell{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    max-width:1200px;
-    margin:0 auto;
-  }
-  nav.side{
-    position:sticky;
-    top:0;
-    align-self:start;
-    padding:48px 28px 48px 40px;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-  }
-  .brand{font-size:1.05rem;font-weight:600;letter-spacing:0.01em;}
-  .brand span{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-faint);font-weight:400;margin-top:4px;}
-  .side-links{list-style:none;padding:0;margin:36px 0 0;display:flex;flex-direction:column;gap:14px;}
-  .side-links a{
-    color:var(--text-dim);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.85rem;
-  }
-  .side-links a:hover, .side-links a.active{color:var(--text);text-decoration:none;}
-  .side-links a.active{color:var(--copper);}
-  .side-foot{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-faint);}
-  .side-foot a{color:var(--text-faint);}
-
-  main{padding:64px 48px 100px;border-left:1px solid var(--line);}
-
-  section{max-width:var(--maxw);margin-bottom:100px;scroll-margin-top:40px;}
-  section:last-of-type{margin-bottom:60px;}
-
-  h1{font-size:2.6rem;line-height:1.15;font-weight:700;margin:0 0 20px;letter-spacing:-0.01em;}
-  h2{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;text-transform:lowercase;color:var(--text-faint);font-weight:500;letter-spacing:0.02em;margin:0 0 28px;padding-bottom:14px;border-bottom:1px solid var(--line);}
-  h2::before{content:"# ";color:var(--copper);}
-
-  .lede{font-size:1.08rem;color:var(--text-dim);max-width:56ch;margin:0 0 40px;}
-
-  /* hero stats */
-  .stat-row{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:44px;}
-  .stat{flex:1;padding:22px 20px;border-right:1px solid var(--line);}
-  .stat:last-child{border-right:none;}
-  .stat-num{font-family:'IBM Plex Mono',monospace;font-size:1.7rem;font-weight:600;color:var(--teal);display:block;}
-  .stat-label{font-size:0.78rem;color:var(--text-faint);margin-top:4px;}
-
-  /* latency chart */
-  .chart-wrap{margin-top:32px;}
-  .chart-caption{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--text-faint);margin-top:10px;}
-
-  /* projects list */
-  .project{
-    padding:30px 0;
-    border-bottom:1px solid var(--line);
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-  .project:first-child{padding-top:0;}
-  .project-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
-  .project-title{font-size:1.2rem;font-weight:600;margin:0;}
-  .project-year{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--text-faint);}
-  .project-tags{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 6px;}
-  .tag{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.7rem;
-    color:var(--text-dim);
-    border:1px solid var(--line);
-    padding:3px 8px;
-    border-radius:2px;
-  }
-  .project-desc{color:var(--text-dim);font-size:0.95rem;max-width:64ch;}
-  .project-desc ul{margin:8px 0 0;padding-left:18px;}
-  .project-desc li{margin-bottom:6px;}
-  .project-note{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.75rem;
-    color:var(--copper);
-    margin-top:4px;
-  }
-  .project-link{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;}
-
-  /* skills */
-  .skill-grid{display:grid;grid-template-columns:140px 1fr;gap:14px 20px;font-size:0.95rem;}
-  .skill-cat{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--text-faint);padding-top:2px;}
-  .skill-val{color:var(--text-dim);}
-  .skill-val b{color:var(--text);font-weight:600;}
-  .learning-note{margin-top:26px;padding:14px 16px;border-left:2px solid var(--copper);background:var(--bg-panel);font-size:0.88rem;color:var(--text-dim);}
-
-  /* achievements + certs */
-  .list-plain{list-style:none;padding:0;margin:0;}
-  .list-plain li{
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
-    color:var(--text-dim);
-    font-size:0.95rem;
-    display:flex;
-    gap:14px;
-  }
-  .list-plain li:last-child{border-bottom:none;}
-  .list-plain li::before{
-    content:"→";
-    color:var(--teal);
-    font-family:'IBM Plex Mono',monospace;
-    flex-shrink:0;
-  }
-
-  /* contact */
-  .contact-grid{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
-  .contact-btn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.85rem;
-    color:var(--text);
-    border:1px solid var(--line);
-    padding:12px 18px;
-    border-radius:2px;
-    transition:border-color .15s, color .15s;
-  }
-  .contact-btn:hover{border-color:var(--copper);color:var(--copper);text-decoration:none;}
-
-  footer{
-    max-width:var(--maxw);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.75rem;
-    color:var(--text-faint);
-    padding-top:24px;
-    border-top:1px solid var(--line);
-  }
-
-  /* mobile nav */
-  .top-mobile{display:none;}
-
-  @media (max-width:860px){
-    .shell{grid-template-columns:1fr;}
-    nav.side{
-      position:sticky;
-      height:auto;
-      flex-direction:row;
-      align-items:center;
-      justify-content:space-between;
-      padding:20px 20px;
-      border-bottom:1px solid var(--line);
-      background:var(--bg);
-      z-index:10;
-    }
-    .side-links{flex-direction:row;margin:0;gap:16px;overflow-x:auto;}
-    .side-foot{display:none;}
-    main{padding:44px 22px 80px;border-left:none;}
-    h1{font-size:1.9rem;}
-    .stat-row{flex-direction:column;}
-    .stat{border-right:none;border-bottom:1px solid var(--line);}
-    .stat:last-child{border-bottom:none;}
-    .skill-grid{grid-template-columns:1fr;}
-    .skill-cat{padding-top:0;}
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-  }
-
+:root{--bg:#080a0e;--panel:#101319;--panel2:#151920;--line:#272b33;--text:#f0f0eb;--muted:#a0a39f;--lime:#c8fa68;--mono:'DM Mono',monospace;--sans:'Manrope',sans-serif;--width:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:4px}::selection{background:var(--lime);color:var(--bg)}.mono{font-family:var(--mono)}.wrap{width:min(var(--width),calc(100% - 64px));margin:auto}
+header{position:fixed;z-index:20;top:0;left:0;right:0;background:#080a0ecc;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff10}.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.wordmark{font-weight:800;letter-spacing:-.06em;font-size:1.05rem}.wordmark span{color:var(--lime)}.navlinks{display:flex;gap:32px;align-items:center}.navlinks a{font:500 .72rem var(--mono);color:var(--muted);transition:color .2s}.navlinks a:hover{color:var(--lime)}.navlinks .nav-cta{border:1px solid var(--line);color:var(--text);padding:10px 15px}.navlinks .nav-cta:hover{border-color:var(--lime);color:var(--lime)}
+.hero{min-height:740px;height:min(880px,100svh);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;position:relative;padding-top:76px;overflow:hidden;border-bottom:1px solid var(--line)}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 72% 48%,#c8fa6812,transparent 40%),linear-gradient(90deg,var(--bg) 16%,#080a0e99 51%,transparent 90%);pointer-events:none;z-index:1}.hero-copy{position:relative;z-index:2;padding:62px 0}.eyebrow{font:500 .7rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:12px}.eyebrow::before{content:'';width:26px;height:1px;background:var(--lime)}h1{font-size:clamp(3.7rem,7.2vw,7.2rem);letter-spacing:-.085em;line-height:.98;margin:30px 0 24px;font-weight:700;max-width:750px}h1 em{font-style:normal;color:var(--lime)}.hero-sub{font-size:1.02rem;color:var(--muted);max-width:470px;margin:0 0 34px}.actions{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;gap:12px;padding:14px 18px;font-size:.82rem;font-weight:700;background:var(--lime);color:#0b0e08;transition:transform .2s,background .2s}.button:hover{transform:translateY(-2px);background:#ddff98}.button.secondary{background:transparent;border:1px solid var(--line);color:var(--text)}.button.secondary:hover{border-color:var(--lime);color:var(--lime)}.button .arrow{font-size:1.1rem}.hero-meta{margin-top:72px;display:flex;gap:36px;flex-wrap:wrap}.meta-item{border-left:1px solid var(--line);padding-left:14px}.meta-value{font-size:1.25rem;font-weight:700;letter-spacing:-.04em}.meta-label{font: .62rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-top:3px}.scene{position:absolute;right:0;top:0;width:60%;height:100%;z-index:0}.scene canvas{display:block;width:100%;height:100%}.scene-label{position:absolute;z-index:2;right:6%;bottom:12%;font: .65rem var(--mono);color:#a5ad9a;letter-spacing:.12em;text-transform:uppercase}
+section{padding:118px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:20px}.kicker{font: .68rem var(--mono);color:var(--lime);letter-spacing:.12em;text-transform:uppercase}.section-title{font-size:clamp(2.2rem,4vw,3.7rem);letter-spacing:-.075em;line-height:1.05;margin:12px 0 0}.section-note{color:var(--muted);font-size:.82rem;max-width:310px}.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.project{background:var(--panel);border:1px solid var(--line);padding:28px;min-height:300px;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}.project:hover{border-color:#c8fa6870;transform:translateY(-3px)}.project::after{content:'';position:absolute;width:180px;height:180px;border:1px solid #c8fa6815;border-radius:50%;right:-95px;top:-100px;box-shadow:0 0 0 24px #c8fa6807,0 0 0 48px #c8fa6804}.project-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.project-index{font: .65rem var(--mono);color:var(--lime)}.project-year{font: .65rem var(--mono);color:#797e7c}.project h3{font-size:1.35rem;letter-spacing:-.05em;margin:0 0 12px}.project p{color:var(--muted);font-size:.83rem;line-height:1.8;margin:0 0 18px;max-width:580px}.project ul{margin:0 0 18px;padding-left:17px;color:var(--muted);font-size:.8rem}.project li{padding:3px 0}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:18px}.tag{font: .61rem var(--mono);color:#c3c6bd;border:1px solid #30343a;padding:5px 8px}.project-foot{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.project-link{font: .68rem var(--mono);color:var(--lime)}.ongoing{font: .61rem var(--mono);color:var(--lime)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}.about-copy{font-size:1.02rem;color:var(--muted);max-width:490px}.about-copy strong{color:var(--text);font-weight:600}.skills{display:grid;gap:0}.skill-row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}.skill-row:first-child{border-top:1px solid var(--line)}.skill-label{font: .66rem var(--mono);color:var(--lime);text-transform:uppercase;padding-top:4px}.skill-content{font-size:.82rem;color:#c3c6bd}.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:35px}.stat{border-top:1px solid var(--line);padding:16px 8px 0 0}.stat b{display:block;font-size:1.45rem;letter-spacing:-.06em}.stat span{font: .59rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.achievements{display:grid;grid-template-columns:1fr 1fr;gap:50px}.achievement-list{list-style:none;padding:0;margin:22px 0 0}.achievement-list li{padding:15px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.83rem;display:flex;gap:14px}.achievement-list li::before{content:'↗';color:var(--lime);font-family:var(--mono)}.contact{padding:120px 0 100px}.contact-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}.contact h2{font-size:clamp(3rem,7vw,6rem);letter-spacing:-.08em;line-height:1;margin:16px 0 20px}.contact p{max-width:460px;color:var(--muted);font-size:.9rem}.contact-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.contact-link{font: .68rem var(--mono);border:1px solid var(--line);padding:12px 14px;transition:.2s}.contact-link:hover{border-color:var(--lime);color:var(--lime)}footer{border-top:1px solid var(--line);padding:20px 0 26px;display:flex;justify-content:space-between;color:#777c78;font: .63rem var(--mono)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:800px){.wrap{width:min(var(--width),calc(100% - 40px))}.hero{height:auto;min-height:800px;display:block;padding-top:76px}.hero-copy{padding:110px 0 44px}.scene{width:100%;height:55%;top:34%;opacity:.74}.hero::before{background:linear-gradient(180deg,var(--bg) 10%,#080a0eaa 44%,transparent 90%)}.hero-meta{margin-top:50px}.projects{grid-template-columns:1fr}.about-grid,.achievements{grid-template-columns:1fr;gap:42px}.section-head{align-items:flex-start;flex-direction:column}.contact-inner{align-items:flex-start;flex-direction:column}.contact-links{justify-content:flex-start}section{padding:82px 0}}
+@media(max-width:540px){.wrap{width:calc(100% - 36px)}.nav{height:66px}.navlinks{gap:14px}.navlinks a{font-size:.62rem}.navlinks .nav-cta{padding:8px}.wordmark{font-size:.95rem}h1{font-size:clamp(3.4rem,17vw,5.5rem)}.hero{min-height:750px}.hero-copy{padding-top:100px}.hero-sub{font-size:.92rem}.hero-meta{gap:18px}.meta-value{font-size:1.1rem}.project{padding:22px;min-height:0}.skill-row{grid-template-columns:95px 1fr;gap:12px}.about-stats{gap:7px}.stat b{font-size:1.2rem}.stat span{font-size:.52rem}footer{gap:12px;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 </style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.170.0/build/three.module.js"}}</script>
 </head>
 <body>
-
-<div class="shell">
-  <nav class="side">
-    <div>
-      <div class="brand">Niraj Bhayera<span>backend &amp; full-stack dev</span></div>
-      <ul class="side-links">
-        <li><a href="#work">work</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#achievements">achievements</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
-    </div>
-    <div class="side-foot">
-      Haldwani, Uttarakhand<br>
-      B.Tech CSE · 2027
-    </div>
-  </nav>
-
-  <main>
-    <!-- HERO -->
-    <section id="hero">
-      <h1>I build backend systems that hold up when the traffic hits.</h1>
-      <p class="lede">Computer Science student focused on backend engineering, data structures &amp; algorithms, and full-stack development. Currently looking for software engineering internships.</p>
-
-      <div class="stat-row" id="statRow">
-        <div class="stat">
-          <span class="stat-num" data-target="19800" data-suffix="/sec">0</span>
-          <span class="stat-label">peak throughput, URL shortener</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="75" data-suffix="%">0</span>
-          <span class="stat-label">latency cut with Redis caching</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="400" data-suffix="+">0</span>
-          <span class="stat-label">LeetCode problems solved</span>
-        </div>
-      </div>
-
-      <div class="chart-wrap">
-        <svg viewBox="0 0 600 90" width="100%" height="90" role="img" aria-label="Lookup latency dropped from 9 milliseconds to 2 milliseconds after adding a Redis cache">
-          <line x1="0" y1="75" x2="600" y2="75" stroke="#22334A" stroke-width="1"/>
-          <rect x="40" y="15" width="60" height="60" fill="#1C2B3D"/>
-          <rect x="500" y="61" width="60" height="14" fill="#4FB8A6"/>
-          <text x="70" y="12" fill="#8FA1B0" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">9ms</text>
-          <text x="530" y="58" fill="#4FB8A6" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">2ms</text>
-          <text x="70" y="88" fill="#5C7080" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">before</text>
-          <text x="530" y="88" fill="#5C7080" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">after</text>
-          <path d="M 100 25 C 250 25, 350 68, 500 68" stroke="#CD8B4E" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
-        </svg>
-        <div class="chart-caption">// self-tested lookup latency, before vs. after write-through Redis cache</div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="work">
-      <h2>work</h2>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-title">Smart URL Shortener</h3>
-          <span class="project-year mono">2026</span>
-        </div>
-        <div class="project-tags">
-          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">Redis</span>
-        </div>
-        <div class="project-desc">
-          <ul>
-            <li>Built a full-stack URL shortener that generates unique six-character links; load testing measured about 19,800 requests/sec at 50 concurrent connections.</li>
-            <li>Added Redis read-through caching with a one-hour TTL and MySQL fallback, reducing lookup latency from about 9 ms to 2 ms and improving measured throughput about 3.8x.</li>
-            <li>Implemented HTTP/HTTPS URL validation, per-IP creation limits, click analytics, automated URL validation tests, and GitHub Actions CI.</li>
-          </ul>
-        </div>
-        <a class="project-link" href="https://github.com/nirajbhayera4/Smart-URL-Shortener-Distributed-System" target="_blank" rel="noopener">github.com/nirajbhayera4/smart-url-shortener</a>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-title">Nexora &mdash; AI Software Engineering Copilot</h3>
-          <span class="project-year mono">2026 &middot; ongoing</span>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React / Vite</span><span class="tag">ChromaDB</span><span class="tag">RAG</span><span class="tag">Ollama</span><span class="tag">Docker</span>
-        </div>
-        <div class="project-desc">
-          <ul>
-            <li>Built a developer copilot with a React/Vite frontend and FastAPI backend for connecting to public GitHub repositories.</li>
-            <li>Indexed repository code in ChromaDB and added retrieval-based Q&amp;A using Ollama and Qwen 2.5 Coder.</li>
-            <li>Created a code review workflow with Tree-sitter, Ruff, Pylint, Bandit, and Semgrep, with optional AI explanations and fix suggestions; containerized local development with Docker Compose.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-title">Imagify &mdash; Text-to-Image SaaS</h3>
-          <span class="project-year mono">2026</span>
-        </div>
-        <div class="project-tags">
-          <span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">Clipdrop API</span>
-        </div>
-        <div class="project-desc">
-          <ul>
-            <li>Built a full-stack web app that turns text prompts into AI-generated images using the Clipdrop API.</li>
-            <li>Implemented user registration and login with JWT authentication and password hashing.</li>
-            <li>Developed a responsive interface with React, Vite, Tailwind CSS, and React Router.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2>skills</h2>
-      <div class="skill-grid">
-        <div class="skill-cat">languages</div><div class="skill-val"><b>C++</b></div>
-        <div class="skill-cat">frontend</div><div class="skill-val">HTML5, CSS3</div>
-        <div class="skill-cat">backend</div><div class="skill-val">Node.js, RESTful APIs (development &amp; integration)</div>
-        <div class="skill-cat">databases</div><div class="skill-val">MySQL</div>
-        <div class="skill-cat">core cs</div><div class="skill-val">Data Structures &amp; Algorithms, Software Engineering, DBMS, OOP, Computer Networks, Low-Level Design (LLD)</div>
-        <div class="skill-cat">tools</div><div class="skill-val">Git, GitHub, VS Code</div>
-      </div>
-      <div class="learning-note">Currently strengthening Python and exploring Machine Learning.</div>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements">
-      <h2>achievements</h2>
-      <ul class="list-plain">
-        <li>Solved 400+ LeetCode problems — strong grounding in data structures, algorithms, and problem decomposition.</li>
-        <li>Smart India Hackathon (Internal Round) participant — Graphic Era Hill University, Aug 2025.</li>
-        <li>Built 3 end-to-end projects spanning scalable backend systems, AI-assisted multi-agent orchestration, and machine learning — all public on GitHub.</li>
-      </ul>
-      <h2 style="margin-top:44px;">certifications</h2>
-      <ul class="list-plain">
-        <li>Artificial Intelligence — LearnNex / Wipro DICS (2025): Supervised &amp; Unsupervised ML.</li>
-        <li>Kotlin for Android Development — Udemy (2024).</li>
-      </ul>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>contact</h2>
-      <p class="lede">Open to software engineering internships — happy to talk about any of the projects above in detail.</p>
-      <div class="contact-grid">
-        <a class="contact-btn" href="mailto:nirajbhayera4@gmail.com">nirajbhayera4@gmail.com</a>
-        <a class="contact-btn" href="tel:+918475948200">+91 84759 48200</a>
-        <a class="contact-btn" href="https://github.com/nirajbhayera4" target="_blank" rel="noopener">github.com/nirajbhayera4</a>
-        <a class="contact-btn" href="#" id="linkedinLink" target="_blank" rel="noopener">linkedin.com/in/your-handle</a>
-      </div>
-    </section>
-
-    <footer>
-      built by niraj bhayera · updated 2026
-    </footer>
-  </main>
-</div>
-
-<script>
-// count-up animation for hero stats, respects reduced-motion
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const nums = document.querySelectorAll('.stat-num');
-
-  function formatNum(n){
-    return n.toLocaleString('en-US');
-  }
-
-  function animate(el){
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const suffix = el.getAttribute('data-suffix') || '';
-    if(reduce){
-      el.textContent = formatNum(target) + suffix;
-      return;
-    }
-    const duration = 1100;
-    const start = performance.now();
-    function step(now){
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const val = Math.floor(eased * target);
-      el.textContent = formatNum(val) + suffix;
-      if(progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        animate(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  nums.forEach(n => observer.observe(n));
-
-  // active nav link on scroll
-  const sections = document.querySelectorAll('main section[id]');
-  const links = document.querySelectorAll('.side-links a');
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const link = document.querySelector('.side-links a[href="#' + entry.target.id + '"]');
-      if(!link) return;
-      if(entry.isIntersecting){
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-40% 0px -50% 0px' });
-
-  sections.forEach(s => navObserver.observe(s));
-
+<header><div class="wrap nav"><a class="wordmark" href="#top">NB<span>.</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let’s talk <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="top">
+<section class="hero wrap" style="border-bottom:0;padding-bottom:0">
+  <div class="scene" aria-hidden="true"><canvas id="three-canvas"></canvas><span class="scene-label">Interactive field / 001</span></div>
+  <div class="hero-copy"><div class="eyebrow">Computer science · Haldwani, India</div><h1>Engineering<br>the <em>useful.</em></h1><p class="hero-sub">I’m Niraj, a software engineer in the making. I build dependable backend systems, thoughtful developer tools, and full-stack products.</p><div class="actions"><a class="button" href="#work">Explore my work <span class="arrow">↘</span></a><a class="button secondary" href="mailto:nirajbhayera4@gmail.com">Get in touch <span class="arrow">↗</span></a></div><div class="hero-meta"><div class="meta-item"><span class="meta-value">19.8k</span><span class="meta-label">requests / sec</span></div><div class="meta-item"><span class="meta-value">400+</span><span class="meta-label">problems solved</span></div><div class="meta-item"><span class="meta-value">2027</span><span class="meta-label">B.Tech · CSE</span></div></div></div>
+</section>
+<section id="work"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">01 / Selected projects</div><h2 class="section-title">Things I’ve built.</h2></div><p class="section-note">A few systems and products I’ve taken from an idea to a working build.</p></div><div class="projects">
+<article class="project reveal"><div class="project-top"><span class="project-index">PROJECT 01</span><span class="project-year">2026</span></div><h3>Smart URL Shortener</h3><p>A full-stack short link service built for speed, safety, and useful analytics.</p><ul><li>Generated unique six-character links; load testing measured ~19,800 requests/sec at 50 concurrent connections.</li><li>Redis read-through cache with a one-hour TTL and MySQL fallback cut lookup latency from ~9 ms to ~2 ms.</li><li>Added URL validation, per-IP rate limits, click analytics, automated tests, and GitHub Actions CI.</li></ul><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">Redis</span></div><div class="project-foot"><a class="project-link" href="https://github.com/nirajbhayera4/Smart-URL-Shortener-Distributed-System" target="_blank" rel="noopener noreferrer">View repository ↗</a><span class="project-year">SYSTEMS</span></div></article>
+<article class="project reveal"><div class="project-top"><span class="project-index">PROJECT 02</span><span class="ongoing">● IN PROGRESS</span></div><h3>Nexora — AI Engineering Copilot</h3><p>A repository-aware assistant that helps developers understand and review code.</p><ul><li>Connects to public GitHub repositories and indexes code with ChromaDB for retrieval-based Q&amp;A.</li><li>Uses Ollama and Qwen 2.5 Coder to answer questions about indexed code.</li><li>Combines Tree-sitter, Ruff, Pylint, Bandit, and Semgrep checks with optional AI suggestions.</li><li>Containerized local development with Docker Compose, live reload, and host Ollama connectivity.</li></ul><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React / Vite</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Docker</span></div><div class="project-foot"><span class="project-year">DEVELOPER TOOLS</span></div></article>
+<article class="project reveal"><div class="project-top"><span class="project-index">PROJECT 03</span><span class="project-year">2026</span></div><h3>Imagify — Text-to-Image SaaS</h3><p>A responsive web app that turns written prompts into AI-generated images.</p><ul><li>Integrated the Clipdrop API into a full-stack React and Express application.</li><li>Built user registration and login with JWT authentication and password hashing.</li><li>Created a responsive interface with React, Vite, Tailwind CSS, and React Router.</li></ul><div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">Clipdrop API</span></div><div class="project-foot"><span class="project-year">GENERATIVE AI</span></div></article>
+</div></div></section>
+<section id="about"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">02 / A little about me</div><h2 class="section-title">Curious by default.</h2></div></div><div class="about-grid"><div class="reveal"><p class="about-copy">I’m pursuing a <strong>B.Tech in Computer Science at Graphic Era Hill University</strong>, and I enjoy working at the point where solid engineering meets useful products.</p><p class="about-copy">My current focus is backend development, databases, and developer tooling. I care about understanding why a system behaves the way it does, then making it clearer and more reliable.</p><div class="about-stats"><div class="stat"><b>400+</b><span>LeetCode solved</span></div><div class="stat"><b>3</b><span>Full-stack builds</span></div><div class="stat"><b>2027</b><span>Graduation</span></div></div></div><div class="skills reveal"><div class="skill-row"><span class="skill-label">Languages</span><span class="skill-content">C++, JavaScript (ES6), Python</span></div><div class="skill-row"><span class="skill-label">Frontend</span><span class="skill-content">React, HTML5, CSS3, Vite, Tailwind CSS</span></div><div class="skill-row"><span class="skill-label">Backend</span><span class="skill-content">Node.js, Express, FastAPI, REST APIs</span></div><div class="skill-row"><span class="skill-label">Data</span><span class="skill-content">MySQL, Redis, MongoDB, ChromaDB</span></div><div class="skill-row"><span class="skill-label">Core CS</span><span class="skill-content">DSA, OOP, DBMS, OS, Computer Networks, LLD</span></div><div class="skill-row"><span class="skill-label">Tools</span><span class="skill-content">Git, GitHub, Docker, VS Code, Postman</span></div></div></div></div></section>
+<section><div class="wrap"><div class="achievements"><div class="reveal"><div class="kicker">03 / Highlights</div><h2 class="section-title">Milestones.</h2><ul class="achievement-list"><li>Solved 400+ LeetCode problems across data structures and algorithms.</li><li>Smart India Hackathon internal round participant — Graphic Era Hill University, Aug 2025.</li></ul></div><div class="reveal"><div class="kicker">Learning / Certifications</div><h2 class="section-title">Always learning.</h2><ul class="achievement-list"><li>Artificial Intelligence — LearnNex / Wipro DICS (2025).</li><li>The Complete Full-Stack Web Development Bootcamp — Udemy (2024).</li><li>SQL (Basic) — HackerRank (2026).</li><li>Cloud Practitioner Essentials.</li></ul></div></div></div></section>
+<section class="contact" id="contact"><div class="wrap contact-inner"><div class="reveal"><div class="kicker">04 / Contact</div><h2>Let’s build<br><span style="color:var(--lime)">something good.</span></h2><p>Open to software engineering internships and interesting engineering conversations. Reach out and let’s talk.</p></div><div class="contact-links reveal"><a class="contact-link" href="mailto:nirajbhayera4@gmail.com">Email ↗</a><a class="contact-link" href="tel:+918475948200">Phone ↗</a><a class="contact-link" href="https://github.com/nirajbhayera4" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></section>
+</main><footer class="wrap"><span>NIRAJ BHAYERA · SOFTWARE ENGINEER</span><span>HALDWANI, INDIA · 2026</span></footer>
+<script type="module">
+import * as THREE from 'three';
+const canvas=document.querySelector('#three-canvas');
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,0,12);
+const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const group=new THREE.Group();scene.add(group);
+const count=850,positions=new Float32Array(count*3),sizes=new Float32Array(count);let seed=37;const rand=()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646};
+for(let i=0;i<count;i++){let r=3.2*Math.sqrt(rand()),a=rand()*Math.PI*2;positions[i*3]=Math.cos(a)*r;positions[i*3+1]=Math.sin(a)*r*.78;positions[i*3+2]=(rand()-.5)*2.1;sizes[i]=rand()}
+const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(positions,3));
+const points=new THREE.Points(geo,new THREE.PointsMaterial({color:0xc8fa68,size:.035,transparent:true,opacity:.74,sizeAttenuation:true}));group.add(points);
+const ringMat=new THREE.MeshBasicMaterial({color:0xc8fa68,transparent:true,opacity:.24,wireframe:true});
+for(let i=0;i<5;i++){const ring=new THREE.Mesh(new THREE.TorusGeometry(1.2+i*.55,.004,4,180),ringMat);ring.rotation.set(.7+i*.12,.3+i*.2,.2);group.add(ring)}
+const core=new THREE.Mesh(new THREE.IcosahedronGeometry(.88,2),new THREE.MeshBasicMaterial({color:0xc8fa68,wireframe:true,transparent:true,opacity:.42}));group.add(core);
+const inner=new THREE.Mesh(new THREE.IcosahedronGeometry(.44,1),new THREE.MeshBasicMaterial({color:0xc8fa68,wireframe:true,transparent:true,opacity:.22}));group.add(inner);
+let pointerX=0,pointerY=0,targetX=0,targetY=0;window.addEventListener('pointermove',e=>{targetX=(e.clientX/innerWidth-.5)*.42;targetY=(e.clientY/innerHeight-.5)*.3},{passive:true});
+const resize=()=>{const box=canvas.getBoundingClientRect();if(!box.width||!box.height)return;renderer.setSize(box.width,box.height,false);camera.aspect=box.width/box.height;camera.updateProjectionMatrix()};new ResizeObserver(resize).observe(canvas.parentElement);resize();
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let frame=0;
+function draw(){if(reduced&&frame++>1)return;requestAnimationFrame(draw);pointerX+=(targetX-pointerX)*.025;pointerY+=(targetY-pointerY)*.025;group.rotation.y+=.0011;group.rotation.x=Math.sin(performance.now()*.00018)*.08;group.rotation.y+=pointerX*.002;group.rotation.x+=pointerY*.002;core.rotation.x+=.001;core.rotation.y-=.0013;inner.rotation.y+=.0018;renderer.render(scene,camera)}draw();
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
