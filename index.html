@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -264,13 +264,13 @@
           <span class="project-year mono">2026</span>
         </div>
         <div class="project-tags">
-          <span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">Backend Systems</span>
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">Redis</span>
         </div>
         <div class="project-desc">
           <ul>
-            <li>Engineered a scalable backend URL shortener achieving ~19,800 req/sec under 50 concurrent connections.</li>
-            <li>Reduced lookup latency by ~75% and improved throughput ~3.8× using a Redis write-through caching layer, cutting response time from ~9ms to ~2ms.</li>
-            <li>Designed a MySQL schema with Redis as a write-through cache for consistency under peak load, and load-tested the system to validate behavior.</li>
+            <li>Built a full-stack URL shortener that generates unique six-character links; load testing measured about 19,800 requests/sec at 50 concurrent connections.</li>
+            <li>Added Redis read-through caching with a one-hour TTL and MySQL fallback, reducing lookup latency from about 9 ms to 2 ms and improving measured throughput about 3.8x.</li>
+            <li>Implemented HTTP/HTTPS URL validation, per-IP creation limits, click analytics, automated URL validation tests, and GitHub Actions CI.</li>
           </ul>
         </div>
         <a class="project-link" href="https://github.com/nirajbhayera4/Smart-URL-Shortener-Distributed-System" target="_blank" rel="noopener">github.com/nirajbhayera4/smart-url-shortener</a>
@@ -278,59 +278,38 @@
 
       <div class="project">
         <div class="project-head">
-          <h3 class="project-title">AI Software Team — Multi-Agent Dev Workflow</h3>
-          <span class="project-year mono">2026</span>
+          <h3 class="project-title">Nexora &mdash; AI Software Engineering Copilot</h3>
+          <span class="project-year mono">2026 &middot; ongoing</span>
         </div>
         <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">LangGraph-style Orchestration</span><span class="tag">OpenAI / Ollama</span>
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React / Vite</span><span class="tag">ChromaDB</span><span class="tag">RAG</span><span class="tag">Ollama</span><span class="tag">Docker</span>
         </div>
         <div class="project-desc">
           <ul>
-            <li>Directed AI coding agents to architect a multi-agent framework with manager, developer, reviewer, and tester roles coordinated through a workflow graph.</li>
-            <li>Defined the system architecture and modular structure — agent logic, shared tools, prompt templates, UI layer — then guided AI-assisted implementation.</li>
-            <li>Configured multi-provider LLM support (OpenAI, Ollama) and kept credentials out of source control.</li>
+            <li>Built a developer copilot with a React/Vite frontend and FastAPI backend for connecting to public GitHub repositories.</li>
+            <li>Indexed repository code in ChromaDB and added retrieval-based Q&amp;A using Ollama and Qwen 2.5 Coder.</li>
+            <li>Created a code review workflow with Tree-sitter, Ruff, Pylint, Bandit, and Semgrep, with optional AI explanations and fix suggestions; containerized local development with Docker Compose.</li>
           </ul>
         </div>
-        <div class="project-note">design + direction by me, implementation AI-assisted</div>
-        <a class="project-link" href="https://github.com/nirajbhayera4/Ai-software-team" target="_blank" rel="noopener">github.com/nirajbhayera4/ai-software-team</a>
       </div>
 
       <div class="project">
         <div class="project-head">
-          <h3 class="project-title">Multiple Disease Prediction Web App</h3>
+          <h3 class="project-title">Imagify &mdash; Text-to-Image SaaS</h3>
           <span class="project-year mono">2026</span>
         </div>
         <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Streamlit</span><span class="tag">MongoDB</span>
+          <span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">Clipdrop API</span>
         </div>
         <div class="project-desc">
           <ul>
-            <li>Built and deployed ML classification models for Diabetes, Heart Disease, and Parkinson's prediction, reaching 85–90% precision.</li>
-            <li>Integrated MongoDB for prediction history and built a Streamlit frontend for non-technical users.</li>
+            <li>Built a full-stack web app that turns text prompts into AI-generated images using the Clipdrop API.</li>
+            <li>Implemented user registration and login with JWT authentication and password hashing.</li>
+            <li>Developed a responsive interface with React, Vite, Tailwind CSS, and React Router.</li>
           </ul>
         </div>
-        <div class="project-note">guided project — built while learning end-to-end ML deployment</div>
-        <a class="project-link" href="https://github.com/nirajbhayera4/ML-web-app" target="_blank" rel="noopener">github.com/nirajbhayera4/ml-web-app</a>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-title">Epic Search Bot (WhatsApp)</h3>
-          <span class="project-year mono">2026</span>
-        </div>
-        <div class="project-tags">
-          <span class="tag">AI-Assisted Development</span><span class="tag">APIs</span>
-        </div>
-        <div class="project-desc">
-          <ul>
-            <li>Built a WhatsApp-based intelligent search assistant using AI coding agents, integrating external APIs for real-time query handling and response formatting for a prospective client use case.</li>
-            <li>Guided AI-assisted implementation of configuration management and error handling; reviewed and validated functionality.</li>
-          </ul>
-        </div>
-        <div class="project-note">scoped for freelance delivery; engagement was cancelled after build</div>
       </div>
     </section>
-
     <!-- SKILLS -->
     <section id="skills">
       <h2>skills</h2>
